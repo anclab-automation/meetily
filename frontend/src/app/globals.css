@@ -1,3 +1,5 @@
+@import "../styles/anclab-product.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -77,59 +79,64 @@
 }
 
 @layer base {
+  /* shadcn semantic variables mapped onto the Anclab Product System (see src/styles/anclab-product.css). */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --background: 45 28.6% 97.3%;       /* canvas  #faf9f6 */
+    --foreground: 255 11.1% 7.1%;       /* ink     #111014 */
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 255 11.1% 7.1%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --popover-foreground: 255 11.1% 7.1%;
+    --primary: 255 11.1% 7.1%;          /* action-primary: ink */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 40 16.7% 92.9%;        /* bg-subtle #f0eeea */
+    --secondary-foreground: 255 11.1% 7.1%;
+    --muted: 40 16.7% 92.9%;
+    --muted-foreground: 36 5.6% 35.3%;  /* text-secondary #5f5b55 */
+    --accent: 42 38.5% 89.8%;           /* bg-hover #efe9db */
+    --accent-foreground: 255 11.1% 7.1%;
+    --destructive: 4.2 76.5% 40%;       /* danger #b42318 */
+    --destructive-foreground: 0 0% 100%;
+    --border: 42 11.9% 83.5%;           /* border-subtle #dad7d0 */
+    --input: 38.2 4.3% 50%;             /* border-control #85817a */
+    --ring: 222.9 100% 57.3%;           /* focus: accent #2563ff */
+    --signal: 9.1 100% 58.4%;           /* brand signal #ff4b2b */
+    --signal-foreground: 255 11.1% 7.1%;
+    --paper: 42 55.6% 92.9%;            /* bg-brand #f7f1e3 */
+    --radius: 4px;
+    --chart-1: 222.9 100% 57.3%;
+    --chart-2: 36 5.6% 35.3%;
+    --chart-3: 9.1 100% 58.4%;
+    --chart-4: 174.3 84.7% 38.4%;
+    --chart-5: 41.4 100% 61.6%;
   }
 
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --background: 240 6.1% 9.6%;
+    --foreground: 42 43.5% 91%;
+    --card: 240 4.2% 13.9%;
+    --card-foreground: 42 43.5% 91%;
+    --popover: 240 4.2% 13.9%;
+    --popover-foreground: 42 43.5% 91%;
+    --primary: 42 43.5% 91%;
+    --primary-foreground: 255 11.1% 7.1%;
+    --secondary: 240 4.3% 18.4%;
+    --secondary-foreground: 42 43.5% 91%;
+    --muted: 240 4.3% 18.4%;
+    --muted-foreground: 264 7.1% 72.5%;
+    --accent: 240 4.3% 22.9%;
+    --accent-foreground: 42 43.5% 91%;
+    --destructive: 5.2 100% 81.8%;
+    --destructive-foreground: 255 11.1% 7.1%;
+    --border: 240 4.2% 28.2%;
+    --input: 260 3.9% 54.7%;
+    --ring: 224.5 100% 74.9%;
+    --paper: 255 11.1% 7.1%;
+    --chart-1: 224.5 100% 74.9%;
+    --chart-2: 264 7.1% 72.5%;
+    --chart-3: 9.1 100% 58.4%;
+    --chart-4: 174.3 84.7% 38.4%;
+    --chart-5: 41.4 100% 61.6%;
   }
 }
 
@@ -140,7 +147,7 @@
 
   /* html, */
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground text-sm antialiased;
     overflow: hidden;
     height: 100%;
   }
@@ -166,18 +173,18 @@
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #d1d5db;
+    background: var(--anc-palette-border);
     border-radius: 3px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #9ca3af;
+    background: var(--anc-palette-control-border);
   }
 
   /* Firefox scrollbar */
   .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: #d1d5db transparent;
+    scrollbar-color: var(--anc-palette-border) transparent;
   }
 
   /* BlockNote Editor - Override fixed dimensions for responsive layout */
