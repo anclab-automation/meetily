@@ -476,12 +476,12 @@ const Sidebar: React.FC = () => {
               <button
                 onClick={handleRecordingToggle}
                 disabled={isRecording}
-                className={`p-2 ${isRecording ? 'bg-red-500 cursor-not-allowed' : 'bg-red-500 hover:bg-red-600'} rounded-full transition-colors duration-150 shadow-sm`}
+                className={`p-2 text-signal-foreground ${isRecording ? 'bg-signal/60 cursor-not-allowed' : 'bg-signal hover:bg-signal-hover'} rounded-full transition-colors duration-150`}
               >
                 {isRecording ? (
-                  <Square className="w-5 h-5 text-white" />
+                  <Square className="w-5 h-5" />
                 ) : (
-                  <Mic className="w-5 h-5 text-white" />
+                  <Mic className="w-5 h-5" />
                 )}
               </button>
             </TooltipTrigger>
@@ -568,8 +568,8 @@ const Sidebar: React.FC = () => {
         <div
           className={`flex items-center transition-all duration-150 group ${item.type === 'folder' && depth === 0
             ? 'p-3 text-lg font-semibold h-10 mx-3 mt-3 rounded-lg'
-            : `px-3 py-2 my-0.5 rounded-md text-sm ${isActive ? 'bg-blue-100 text-blue-700 font-medium' :
-              hasTranscriptMatch ? 'bg-yellow-50' : 'hover:bg-gray-50'
+            : `px-3 py-1.5 my-0.5 rounded-md text-sm ${isActive ? 'bg-blue-50 text-blue-600 font-medium' :
+              hasTranscriptMatch ? 'bg-yellow-50' : 'hover:bg-accent'
             } cursor-pointer`
             }`}
           style={item.type === 'folder' && depth === 0 ? {} : { paddingLeft }}
@@ -665,7 +665,7 @@ const Sidebar: React.FC = () => {
       {/* Floating collapse button */}
       <button
         onClick={toggleCollapse}
-        className="absolute -right-6 top-20 z-50 p-1 bg-white hover:bg-gray-100 rounded-full shadow-lg border"
+        className="absolute -right-6 top-20 z-50 p-1 bg-card text-gray-600 hover:bg-accent rounded-full shadow-sm border"
         style={{ transform: 'translateX(50%)' }}
       >
         {isCollapsed ? (
@@ -676,7 +676,7 @@ const Sidebar: React.FC = () => {
       </button>
 
       <div
-        className={`h-screen bg-white border-r shadow-sm flex flex-col transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-64'
+        className={`h-screen bg-paper border-r flex flex-col transition-all duration-300 ${isCollapsed ? 'w-16' : 'w-64'
           }`}
       >
         {/*  Header with traffic light spacing */}
@@ -725,7 +725,7 @@ const Sidebar: React.FC = () => {
             {!isCollapsed && (
               <div
                 onClick={() => router.push('/')}
-                className="p-3  text-lg font-semibold items-center hover:bg-gray-100 h-10   flex mx-3 mt-3 rounded-lg cursor-pointer"
+                className={`px-3 text-sm font-medium items-center h-8 flex mx-3 mt-2 rounded-md cursor-pointer transition-colors ${pathname === '/' ? 'bg-blue-50 text-blue-600' : 'hover:bg-accent'}`}
               >
                 <Home className="w-4 h-4 mr-2" />
                 <span>Home</span>
@@ -742,10 +742,9 @@ const Sidebar: React.FC = () => {
                 {filteredSidebarItems.filter(item => item.type === 'folder').map(item => (
                   <div key={item.id}>
                     <div
-                      className="flex items-center transition-all duration-150 p-3 text-lg font-semibold h-10 mx-3 mt-3 rounded-lg"
+                      className="flex items-center px-3 mx-3 mt-5 mb-1 text-xs font-medium uppercase tracking-wide text-gray-600"
                     >
-                      <NotebookPen className="w-4 h-4 mr-2 text-gray-600" />
-                      <span className="text-gray-700">{item.title}</span>
+                      <span>{item.title}</span>
                       {searchQuery && item.id === 'meetings' && isSearching && (
                         <span className="ml-2 text-xs text-blue-500 animate-pulse">Searching...</span>
                       )}
@@ -773,11 +772,11 @@ const Sidebar: React.FC = () => {
         {/* Footer */}
         {!isCollapsed && (
 
-          <div className="flex-shrink-0 p-2 border-t border-gray-100">
+          <div className="flex-shrink-0 p-3 border-t">
             <button
               onClick={handleRecordingToggle}
               disabled={isRecording}
-              className={`w-full flex items-center justify-center px-3 py-2 text-sm font-medium text-white ${isRecording ? 'bg-red-300 cursor-not-allowed' : 'bg-red-500 hover:bg-red-600'} rounded-lg transition-colors shadow-sm`}
+              className={`w-full flex items-center justify-center px-3 h-8 text-sm font-medium text-signal-foreground ${isRecording ? 'bg-signal/60 cursor-not-allowed' : 'bg-signal hover:bg-signal-hover'} rounded-md transition-colors`}
             >
               {isRecording ? (
                 <>
@@ -795,7 +794,7 @@ const Sidebar: React.FC = () => {
             {betaFeatures.importAndRetranscribe && (
               <button
                 onClick={() => openImportDialog()}
-                className="w-full flex items-center justify-center px-3 py-2 mt-1 text-sm font-medium text-gray-700 bg-blue-100 hover:bg-blue-200 rounded-lg transition-colors shadow-sm"
+                className="w-full flex items-center justify-center px-3 h-8 mt-2 text-sm font-medium text-foreground bg-card border border-input hover:bg-accent rounded-md transition-colors"
               >
                 <Upload className="w-4 h-4 mr-2" />
                 <span>Import Audio</span>
@@ -804,7 +803,7 @@ const Sidebar: React.FC = () => {
 
             <button
               onClick={() => router.push('/settings')}
-              className="w-full flex items-center justify-center px-3 py-1.5 mt-1 mb-1 text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors shadow-sm"
+              className={`w-full flex items-center px-3 h-8 mt-2 mb-1 text-sm font-medium rounded-md transition-colors ${pathname === '/settings' ? 'bg-blue-50 text-blue-600' : 'text-foreground hover:bg-accent'}`}
             >
               <Settings className="w-4 h-4 mr-2" />
               <span>Settings</span>
