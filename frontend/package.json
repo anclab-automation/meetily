@@ -75,7 +75,7 @@
         "geist": "^1.8.2",
         "lodash": "^4.17.21",
         "lucide-react": "^0.469.0",
-        "next": "^14.2.25",
+        "next": "^15.5.28",
         "radix-ui": "^1.4.3",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -85,7 +85,7 @@
         "sonner": "^2.0.7",
         "tailwind-merge": "^3.3.1",
         "tailwindcss-animate": "^1.0.7",
-        "zod": "^3.25.71"
+        "zod": "^4.6.6"
     },
     "pnpm": {
         "overrides": {
